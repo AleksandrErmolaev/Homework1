@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список всех записей</title>
+</head>
+<body>
+    <a href="{{ url_for('item.create') }}">Создать</a>
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{{ url_for('item.view', item_id=item.id) }}">{{ item.name }}</a>
+                (<a href="{{ url_for('item.update', item_id=item.id) }}">Изменить</a> |
+                <a href="{{ url_for('item.delete', item_id=item.id) }}">Удалить</a>)
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
